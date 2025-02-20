@@ -7,6 +7,6 @@ Test commit: Eduard
 Group Members: 
 - Jason Glancy
 - Bomin Ko
-- Jana Sy
+- Jana Sy C22363431
 - Liutauras Bruozis
 - Eduard Dravnieks
