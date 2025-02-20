@@ -1,7 +1,8 @@
 # Global Classroom Project
  Global Classroom Game Project
 
-Test commit: 
+Test commit: Jana
+Test commit: Eduard
 
 Group Members: 
 - Jason Glancy
