@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://djj0cjii8hxaa"]
+
+[ext_resource type="Texture2D" uid="uid://cd14kql1cb60f" path="res://backgrounds/repeatable_cave_bg.png" id="1_yyqkx"]
+[ext_resource type="PackedScene" uid="uid://d33issu1eff0t" path="res://scenes/character_player.tscn" id="2_y0l7d"]
+
+[node name="stage1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="cave_parallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2(320, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="cave_bg" type="Sprite2D" parent="ParallaxBackground/cave_parallax"]
+texture = ExtResource("1_yyqkx")
+centered = false
+
+[node name="character_player" parent="." instance=ExtResource("2_y0l7d")]
+position = Vector2(160, 90)
