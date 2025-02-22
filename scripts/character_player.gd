@@ -18,10 +18,17 @@ func get_input():
 		last_direction = "left"
 	else:
 		animation.play("idle_" + last_direction)
+		
+	# Jumping 
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = -500 
+		#animation.play("jump_" + last_direction) #Plays jump animation
+		print("Jump Triggered!")  # Debugging
 
 func _physics_process(_delta):
 	#apply gravity
-	velocity.y += gravity * _delta
+	if not is_on_floor():
+		velocity.y += gravity * _delta # This applies gravity only when the character is not on the ground
 	get_input()
 	move_and_slide()
 	

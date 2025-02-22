@@ -10,5 +10,5 @@ Group Members:
 - Jason Glancy
 - Bomin Ko D24127332
 - Jana Sy C22363431
-- Liutauras Bruozis
+- Liutauras Bruozis C22506249
 - Eduard Dravnieks
