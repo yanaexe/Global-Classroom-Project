@@ -8,7 +8,7 @@ Test commit: Jason
 
 Group Members: 
 - Jason Glancy
-- Bomin Ko
+- Bomin Ko D24127332
 - Jana Sy C22363431
 - Liutauras Bruozis
 - Eduard Dravnieks
