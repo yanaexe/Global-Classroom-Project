@@ -125,16 +125,19 @@ _data = {
 size = Vector2(5, 8)
 
 [node name="character_player" type="CharacterBody2D"]
+position = Vector2(160, 89)
 script = ExtResource("1_h8xes")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.33871, 0.327869)
+position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_0msbn")
 hframes = 6
 vframes = 6
 frame = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 2)
 scale = Vector2(0.33871, 0.327869)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

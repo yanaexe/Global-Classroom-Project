@@ -42,6 +42,7 @@ texture = ExtResource("1_yyqkx")
 centered = false
 
 [node name="character_player" parent="." instance=ExtResource("2_y0l7d")]
+scale = Vector2(3.96, 3.76)
 
 [node name="stage_platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucbtq")
