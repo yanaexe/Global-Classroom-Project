@@ -35,10 +35,3 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
-	
-func die():
-	if last_direction == "right":
-		animation.play("dead_right")
-	else :
-		animation.play("dead_left")
-	set_physics_process(false)  # Stop movement
