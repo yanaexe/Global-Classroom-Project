@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 400
-@export var gravity = 1500  # Adjust this to make the player get pulled to the ground faster
-@export var jump_strength = 400  # Adjust this to control how high the jump is
+@export var speed = 300
+@export var gravity = 1500  #adjust this to make the player get pulled to the ground faster
+@export var jump_strength = 400  
 @onready var animation = $AnimationPlayer
 var last_direction = "right"
 
@@ -33,6 +33,7 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	move_and_slide() 
+	
 
 func die():
 	if last_direction == "right":

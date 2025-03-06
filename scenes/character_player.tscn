@@ -1,35 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d33issu1eff0t"]
+[gd_scene load_steps=12 format=3 uid="uid://d33issu1eff0t"]
 
 [ext_resource type="Script" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
-
-[sub_resource type="GDScript" id="GDScript_etjlb"]
-script/source = "extends Camera2D
-
-# Declare custom variables for camera movement limits
-var custom_limit_left : float = 0
-var custom_limit_top : float = 0
-var custom_limit_right : float = 320  # Set this to the background width
-var custom_limit_bottom : float = 180  # Set this to the background height
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	# Enable position smoothing for the camera
-	position_smoothing_enabled = true
-	position_smoothing_speed = 5  # You can adjust this speed to your preference
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	# Apply camera limits to prevent it from going out of bounds
-	var camera_position = position
-	
-	# Clamp the camera position to the defined limits
-	camera_position.x = clamp(camera_position.x, custom_limit_left, custom_limit_right)
-	camera_position.y = clamp(camera_position.y, custom_limit_top, custom_limit_bottom)
-
-	# Update the camera position with the clamped value
-	position = camera_position
-"
 
 [sub_resource type="Animation" id="Animation_t65pi"]
 length = 0.001
@@ -149,8 +121,9 @@ _data = {
 "walk_right": SubResource("Animation_3weu5")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uedl6"]
-size = Vector2(5, 8)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1u45p"]
+a = Vector2(0, -4.21875)
+b = Vector2(0, 4.9375)
 
 [node name="character_player" type="CharacterBody2D"]
 position = Vector2(160, 89)
@@ -167,7 +140,8 @@ frame = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 2)
 scale = Vector2(0.33871, 0.327869)
-script = SubResource("GDScript_etjlb")
+offset = Vector2(0, -20)
+zoom = Vector2(1.2, 1.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -175,5 +149,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_uedl6")
+position = Vector2(0, 1.0625)
+scale = Vector2(2, 1.2)
+shape = SubResource("SegmentShape2D_1u45p")
