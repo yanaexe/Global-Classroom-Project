@@ -121,9 +121,8 @@ _data = {
 "walk_right": SubResource("Animation_3weu5")
 }
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1u45p"]
-a = Vector2(0, -4.21875)
-b = Vector2(0, 4.9375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeqij"]
+size = Vector2(6, 8.00243)
 
 [node name="character_player" type="CharacterBody2D"]
 position = Vector2(160, 89)
@@ -150,5 +149,5 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.0625)
-scale = Vector2(2, 1.2)
-shape = SubResource("SegmentShape2D_1u45p")
+scale = Vector2(1.1, 1.234)
+shape = SubResource("RectangleShape2D_qeqij")
