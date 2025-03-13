@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d33issu1eff0t"]
+[gd_scene load_steps=13 format=3 uid="uid://d33issu1eff0t"]
 
 [ext_resource type="Script" uid="uid://euuy0c6b0cu" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
+[ext_resource type="PackedScene" uid="uid://brvyst51c7fmv" path="res://scenes/staff.tscn" id="3_mc5b1"]
 
 [sub_resource type="Animation" id="Animation_t65pi"]
 length = 0.001
@@ -151,3 +152,6 @@ libraries = {
 position = Vector2(0, 1.0625)
 scale = Vector2(1.1, 1.234)
 shape = SubResource("RectangleShape2D_qeqij")
+
+[node name="Staff" parent="." instance=ExtResource("3_mc5b1")]
+position = Vector2(0, 3)
