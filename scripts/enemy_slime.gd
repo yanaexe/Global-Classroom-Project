@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 100
+@export var speed: float = 70
 @export var gravity: float = 500
 
 var player: CharacterBody2D
@@ -15,11 +15,13 @@ func _physics_process(delta):
 		return  # Player not found yet, skip this frame
 
 	var direction = sign(player.global_position.x - global_position.x)
-	velocity.x = direction * speed
+	if abs(player.global_position.x - global_position.x) < 80:
+		velocity.x = direction * speed
+	else:
+		velocity.x = 0
 	velocity.y += gravity * delta
 
 	move_and_slide()
 
 	# Play idle animation while moving
-	$AnimatedSprite2D.play("idle")
 	$AnimatedSprite2D.flip_h = velocity.x > 0

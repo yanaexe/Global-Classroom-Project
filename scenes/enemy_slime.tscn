@@ -70,7 +70,7 @@ script = ExtResource("1_khk2i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h1vn1")
 animation = &"attack"
-frame_progress = 0.864063
+frame_progress = 0.343201
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
