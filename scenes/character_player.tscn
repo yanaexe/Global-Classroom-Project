@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://d33issu1eff0t"]
 
-[ext_resource type="Script" uid="uid://euuy0c6b0cu" path="res://scripts/character_player.gd" id="1_h8xes"]
+[ext_resource type="Script" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
-[ext_resource type="PackedScene" uid="uid://brvyst51c7fmv" path="res://scenes/staff.tscn" id="3_mc5b1"]
+[ext_resource type="PackedScene" path="res://scenes/staff.tscn" id="3_mc5b1"]
 
 [sub_resource type="Animation" id="Animation_t65pi"]
 length = 0.001
@@ -113,13 +113,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agujc"]
 _data = {
-&"RESET": SubResource("Animation_t65pi"),
-&"dead_left": SubResource("Animation_tjpfb"),
-&"dead_right": SubResource("Animation_k37vd"),
-&"idle_left": SubResource("Animation_13xqn"),
-&"idle_right": SubResource("Animation_k3fdu"),
-&"walk_left": SubResource("Animation_5ix2q"),
-&"walk_right": SubResource("Animation_3weu5")
+"RESET": SubResource("Animation_t65pi"),
+"dead_left": SubResource("Animation_tjpfb"),
+"dead_right": SubResource("Animation_k37vd"),
+"idle_left": SubResource("Animation_13xqn"),
+"idle_right": SubResource("Animation_k3fdu"),
+"walk_left": SubResource("Animation_5ix2q"),
+"walk_right": SubResource("Animation_3weu5")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeqij"]
@@ -145,7 +145,7 @@ zoom = Vector2(1.2, 1.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_agujc")
+"": SubResource("AnimationLibrary_agujc")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
