@@ -39,7 +39,11 @@ func get_input():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_strength  # Apply jump force
 		animation.play("jump_" + last_direction)
-
+	
+	#Moving down
+	if is_on_floor()==false and Input.is_action_just_pressed("down"):
+		velocity.y = +jump_strength
+		 	
 	# Dash Mechanic
 	if Input.is_action_just_pressed("dash") and not is_dashing and dash_cooldown_timer <= 0:
 		is_dashing = true
