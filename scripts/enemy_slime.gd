@@ -17,8 +17,10 @@ func _physics_process(delta):
 	var direction = sign(player.global_position.x - global_position.x)
 	if abs(player.global_position.x - global_position.x) < 80:
 		velocity.x = direction * speed
+		$AnimatedSprite2D.play("attack")
 	else:
 		velocity.x = 0
+		$AnimatedSprite2D.stop()
 	velocity.y += gravity * delta
 
 	move_and_slide()
