@@ -46,16 +46,19 @@ offset_right = 38.0
 offset_bottom = 38.0
 color = Color(0.0475577, 0.0475576, 0.0475576, 1)
 
-[node name="PlayerSoul" type="CharacterBody2D" parent="BattleBox"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BattleBox/Border/BattleArea"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleBox/Border/BattleArea/StaticBody2D"]
+polygon = PackedVector2Array(-2, -2, 38, -2, 38, 38, -2, 38, 0, 36, 36, 36, 36, 0, 0, 0, 0, 36, -2, 38)
+
+[node name="PlayerSoul" type="CharacterBody2D" parent="BattleBox/Border"]
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("1_rsqg1")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="BattleBox/PlayerSoul"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleBox/Border/PlayerSoul"]
+polygon = PackedVector2Array(57.0001, 53.0001, 63.0001, 53.0001, 69.0001, 53.0001, 73.0001, 57.0001, 73.0001, 63.0001, 61.0001, 75.0001, 59.0001, 75.0001, 47, 63.0001, 47, 57.0001, 51.0001, 53.0001)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="BattleBox/Border/PlayerSoul"]
 position = Vector2(60, 75)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ljo2j")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleBox/PlayerSoul"]
-position = Vector2(60, 63)
-scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(0, -4, -2.66666, -6.66666, -6, -6.66666, -8.66667, -3.33333, -8.66667, 0, 0, 8.66667, 8.66667, 0, 8.66667, -4, 5.33334, -6.66666, 2, -6.66666)
