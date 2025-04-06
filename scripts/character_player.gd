@@ -82,6 +82,9 @@ func take_damage(amount):
 	health = max(health - 1, 0)
 	emit_signal("damaged", amount)
 	
+	if health == 0:
+		die()
+	
 	$InvincibilityTimer.start()  # 1 second of invincibility
 	
 func _on_invincibility_timeout():
