@@ -157,6 +157,7 @@ scale = Vector2(1.1, 1.234)
 shape = SubResource("RectangleShape2D_qeqij")
 
 [node name="Staff" parent="." instance=ExtResource("3_mc5b1")]
+visible = false
 position = Vector2(0, 3)
 
 [node name="Graze_Area" type="Area2D" parent="."]
