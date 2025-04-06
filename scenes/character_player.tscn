@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d33issu1eff0t"]
+[gd_scene load_steps=19 format=3 uid="uid://d33issu1eff0t"]
 
 [ext_resource type="Script" uid="uid://euuy0c6b0cu" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
 [ext_resource type="PackedScene" uid="uid://brvyst51c7fmv" path="res://scenes/staff.tscn" id="3_mc5b1"]
+[ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="4_njumh"]
 
 [sub_resource type="Animation" id="Animation_t65pi"]
 length = 0.001
@@ -128,6 +129,35 @@ size = Vector2(6, 8.00243)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc5b1"]
 size = Vector2(7, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx81s"]
+atlas = ExtResource("4_njumh")
+region = Rect2(896, 7, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3slc"]
+atlas = ExtResource("4_njumh")
+region = Rect2(928, 7, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h63hb"]
+atlas = ExtResource("4_njumh")
+region = Rect2(960, 7, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4b70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx81s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3slc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h63hb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="character_player" type="CharacterBody2D"]
 position = Vector2(160, 89)
 script = ExtResource("1_h8xes")
@@ -166,3 +196,24 @@ position = Vector2(0, 3)
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_mc5b1")
 debug_color = Color(0.914586, 0.286384, 0.37118, 0.42)
+
+[node name="Hearts" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart 3" type="AnimatedSprite2D" parent="Hearts"]
+position = Vector2(3, -6)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_k4b70")
+
+[node name="Heart 2" type="AnimatedSprite2D" parent="Hearts"]
+position = Vector2(0, -6)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_k4b70")
+
+[node name="Heart 1" type="AnimatedSprite2D" parent="Hearts"]
+position = Vector2(-3, -6)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_k4b70")
