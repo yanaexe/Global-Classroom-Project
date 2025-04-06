@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://d33issu1eff0t"]
+[gd_scene load_steps=20 format=3 uid="uid://d33issu1eff0t"]
 
 [ext_resource type="Script" uid="uid://euuy0c6b0cu" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
 [ext_resource type="PackedScene" uid="uid://brvyst51c7fmv" path="res://scenes/staff.tscn" id="3_mc5b1"]
+[ext_resource type="Script" uid="uid://dma3k4ausu8a" path="res://scripts/heartManager.gd" id="4_gx81s"]
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="4_njumh"]
 
 [sub_resource type="Animation" id="Animation_t65pi"]
@@ -158,7 +159,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="character_player" type="CharacterBody2D"]
+[node name="character_player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(160, 89)
 script = ExtResource("1_h8xes")
 
@@ -190,6 +191,10 @@ shape = SubResource("RectangleShape2D_qeqij")
 visible = false
 position = Vector2(0, 3)
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="Graze_Area" type="Area2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Graze_Area"]
@@ -197,16 +202,19 @@ position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_mc5b1")
 debug_color = Color(0.914586, 0.286384, 0.37118, 0.42)
 
-[node name="Hearts" type="Control" parent="."]
+[node name="Hearts" type="Control" parent="." node_paths=PackedStringArray("hearts")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("4_gx81s")
+hearts = [NodePath("Heart 3"), NodePath("Heart 2"), NodePath("Heart 1")]
 
 [node name="Heart 3" type="AnimatedSprite2D" parent="Hearts"]
 position = Vector2(3, -6)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_k4b70")
+frame_progress = 0.498054
 
 [node name="Heart 2" type="AnimatedSprite2D" parent="Hearts"]
 position = Vector2(0, -6)

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal damaged(amount)
+
 @export var speed = 300
 @export var gravity = 1500  # Adjust this to make the player get pulled to the ground faster
 @export var jump_strength = 400  
@@ -12,6 +14,12 @@ var last_direction = "right"
 var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown_timer = 0.0
+var health := 6
+var can_take_damage := true
+
+func _ready():
+	$Graze_Area.connect("body_entered", Callable(self, "_on_body_entered"))
+	$InvincibilityTimer.connect("timeout", Callable(self, "_on_invincibility_timeout"))
 
 func get_input():
 	var input_direction = Input.get_axis("left", "right")
@@ -65,6 +73,24 @@ func _physics_process(delta):
 
 	get_input()
 	move_and_slide() 
+	
+func take_damage(amount):
+	if not can_take_damage:
+		return
+	
+	can_take_damage = false 
+	health = max(health - 1, 0)
+	emit_signal("damaged", amount)
+	
+	$InvincibilityTimer.start()  # 1 second of invincibility
+	
+func _on_invincibility_timeout():
+		can_take_damage = true
+		print("Player can now be damaged again.")
+	
+func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		take_damage(1)
 
 func die():
 	if last_direction == "right":
