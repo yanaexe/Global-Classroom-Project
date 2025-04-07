@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuob4rxnl5fcq"]
+
+[ext_resource type="Texture2D" uid="uid://bnoiqfkp82w8e" path="res://backgrounds/arrows.png" id="1_fiqgl"]
+[ext_resource type="Texture2D" uid="uid://ccbsnmmvies6v" path="res://backgrounds/dash.png" id="2_a1hw4"]
+
+[node name="MobileControl" type="CanvasLayer"]
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2(24, 118)
+texture_normal = ExtResource("1_fiqgl")
+passby_press = true
+action = "jump"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2(56, 186)
+rotation = 3.14159
+texture_normal = ExtResource("1_fiqgl")
+passby_press = true
+action = "down"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(6, 168)
+rotation = 4.71239
+texture_normal = ExtResource("1_fiqgl")
+passby_press = true
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(74, 136)
+rotation = 1.5708
+texture_normal = ExtResource("1_fiqgl")
+passby_press = true
+action = "right"
+
+[node name="Dash" type="TouchScreenButton" parent="."]
+position = Vector2(258, 135)
+texture_normal = ExtResource("2_a1hw4")
+passby_press = true
+action = "dash"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://d33issu1eff0t"]
+[gd_scene load_steps=21 format=3 uid="uid://d33issu1eff0t"]
 
 [ext_resource type="Script" uid="uid://euuy0c6b0cu" path="res://scripts/character_player.gd" id="1_h8xes"]
 [ext_resource type="Texture2D" uid="uid://ceq2vfccc328s" path="res://sprites/basic_player.png" id="2_0msbn"]
 [ext_resource type="PackedScene" uid="uid://brvyst51c7fmv" path="res://scenes/staff.tscn" id="3_mc5b1"]
 [ext_resource type="Script" uid="uid://dma3k4ausu8a" path="res://scripts/heartManager.gd" id="4_gx81s"]
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="4_njumh"]
+[ext_resource type="PackedScene" uid="uid://cuob4rxnl5fcq" path="res://scenes/mobile_control.tscn" id="6_i3slc"]
 
 [sub_resource type="Animation" id="Animation_t65pi"]
 length = 0.001
@@ -224,3 +225,5 @@ sprite_frames = SubResource("SpriteFrames_k4b70")
 position = Vector2(-3, -6)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_k4b70")
+
+[node name="MobileControl" parent="." instance=ExtResource("6_i3slc")]
