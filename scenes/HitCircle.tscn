@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://tc61p8xfvf57"]
+
+[ext_resource type="Script" uid="uid://dlibjswr3h1nt" path="res://scripts/hit_circle.gd" id="1_wxeke"]
+[ext_resource type="Texture2D" uid="uid://disyki8a0qu07" path="res://sprites/hitcircle.png" id="2_hmcpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmcpe"]
+radius = 16.0
+
+[node name="HitCircle" type="Area2D"]
+script = ExtResource("1_wxeke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hmcpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hmcpe")
