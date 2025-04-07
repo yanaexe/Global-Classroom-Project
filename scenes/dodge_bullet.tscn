@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvseumiaujjak"]
+[gd_scene load_steps=5 format=3 uid="uid://cvseumiaujjak"]
 
 [ext_resource type="Script" uid="uid://u741h25812hq" path="res://bullet.gd" id="1_6hw4a"]
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="2_ketuh"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pqldm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhl87"]
 atlas = ExtResource("2_ketuh")
@@ -20,14 +18,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DodgeBullet" type="RigidBody2D"]
-scale = Vector2(0.3, 0.3)
+[node name="DodgeBullet" type="Area2D"]
 script = ExtResource("1_6hw4a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(0.920001, 0.92)
-shape = SubResource("CircleShape2D_pqldm")
-
 [node name="Bullet" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.96046e-08, 2.84217e-14)
+scale = Vector2(0.462308, 0.47)
 sprite_frames = SubResource("SpriteFrames_ibv46")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.839375, -4)
+scale = Vector2(1.16071, 1)
+polygon = PackedVector2Array(-2.44623, 0, 0.138385, 0, 2.34608, 1.67092, 2.34608, 5.67092, 0.138385, 8, -2.44623, 8, -4.65392, 5.67092, -4.65392, 1.67092)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

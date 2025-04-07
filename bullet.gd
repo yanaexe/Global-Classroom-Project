@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 @export var speed: float = 150
 @export var direction: Vector2 = Vector2.LEFT
