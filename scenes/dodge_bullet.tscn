@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvseumiaujjak"]
+
+[ext_resource type="Script" uid="uid://u741h25812hq" path="res://bullet.gd" id="1_6hw4a"]
+[ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="2_ketuh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqldm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhl87"]
+atlas = ExtResource("2_ketuh")
+region = Rect2(364, 300, 26, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibv46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhl87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DodgeBullet" type="RigidBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_6hw4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.920001, 0.92)
+shape = SubResource("CircleShape2D_pqldm")
+
+[node name="Bullet" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ibv46")

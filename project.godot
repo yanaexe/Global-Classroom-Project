@@ -29,6 +29,7 @@ window/stretch/mode="canvas_items"
 
 enemies=""
 player=""
+player_soul=""
 
 [input]
 
