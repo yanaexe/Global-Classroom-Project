@@ -55,17 +55,19 @@ color = Color(0.0475577, 0.0475576, 0.0475576, 1)
 polygon = PackedVector2Array(-2, -2, 38, -2, 38, 38, -2, 38, 0, 36, 36, 36, 36, 0, 0, 0, 0, 36, -2, 38)
 
 [node name="PlayerSoul" type="CharacterBody2D" parent="BattleBox/Border" groups=["player_soul"]]
+position = Vector2(20.6667, 21)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("1_rsqg1")
 speed = 100.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleBox/Border/PlayerSoul"]
-position = Vector2(23, 30)
+visible = false
+position = Vector2(-37, -46.0001)
 scale = Vector2(0.620192, 0.585228)
 polygon = PackedVector2Array(57.0001, 53.0001, 63.0001, 53.0001, 69.0001, 53.0001, 73.0001, 57.0001, 73.0001, 63.0001, 61.0001, 75.0001, 59.0001, 75.0001, 47, 63.0001, 47, 57.0001, 51.0001, 53.0001)
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="BattleBox/Border/PlayerSoul"]
-position = Vector2(60, 75)
+position = Vector2(-3.8147e-06, 0)
 sprite_frames = SubResource("SpriteFrames_ljo2j")
 
 [node name="BulletSpawner" type="Node2D" parent="BattleBox"]
