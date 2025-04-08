@@ -8,17 +8,22 @@ func _ready():
 	timer.stop()
 	bullet_spawner.set_process(false)
 	print("Dodge minigame ready!")
-
+	
 func start_minigame():
 	print("Minigame started!")
 	visible = true
 	
-	var screen_size = get_viewport_rect().size
-	position = screen_size / 2 - size / 2
-	print("Centered at:", position)
-	
+	var camera := get_viewport().get_camera_2d()
+	if camera:
+		var camera_screen_pos := get_viewport().get_camera_2d().get_screen_center_position()
+		position = camera_screen_pos - size / 2
+		print("Centered at camera screen center:", position)
+	else:
+		print("⚠️ No camera found")
+		
 	timer.start()
 	bullet_spawner.set_process(true)
+	
 func _on_Timer_timeout():
 	print("You survived!")
 	var bullet_spawner = get_node("BattleBox/BulletSpawner")
