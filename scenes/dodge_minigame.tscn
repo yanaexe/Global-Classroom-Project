@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://qioiy1ybtfuy"]
 
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="1_bfiog"]
-[ext_resource type="Script" path="res://scripts/player_soul.gd" id="1_rsqg1"]
-[ext_resource type="Script" path="res://scripts/dodge_minigame.gd" id="1_upxc4"]
-[ext_resource type="Script" path="res://scripts/bullet_spawner.gd" id="4_tmvo2"]
+[ext_resource type="Script" uid="uid://pu1o1c0i8sn4" path="res://scripts/player_soul.gd" id="1_rsqg1"]
+[ext_resource type="Script" uid="uid://c2rjv8c6sqceo" path="res://scripts/dodge_minigame.gd" id="1_upxc4"]
+[ext_resource type="Script" uid="uid://cfdre1gkqsltw" path="res://scripts/bullet_spawner.gd" id="4_tmvo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsqg1"]
 atlas = ExtResource("1_bfiog")
@@ -22,15 +22,25 @@ animations = [{
 
 [node name="DodgeMinigame" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_top = -0.0300064
-offset_bottom = -0.0300064
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -160.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_upxc4")
 
 [node name="BattleBox" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -61.0
+offset_top = -57.0
+offset_right = -21.0
+offset_bottom = -17.0
 scale = Vector2(3, 3)
 
 [node name="Border" type="ColorRect" parent="BattleBox"]
