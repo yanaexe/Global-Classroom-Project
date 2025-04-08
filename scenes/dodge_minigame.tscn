@@ -23,8 +23,8 @@ animations = [{
 [node name="DodgeMinigame" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = -0.0300064
+offset_bottom = -0.0300064
 script = ExtResource("1_upxc4")
 
 [node name="BattleBox" type="TextureRect" parent="."]
