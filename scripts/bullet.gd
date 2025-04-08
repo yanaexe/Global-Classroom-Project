@@ -6,11 +6,10 @@ extends Area2D
 func _process(delta):
 	position += direction.normalized() * speed * delta
 
-func _on_area_entered(area):
-	if area.name == "PlayerSoul":
+func _on_body_entered(body: Node2D):
+	if body.is_in_group("player_soul"):
 		print("Player hit!")
-		# Handle damage here
 		queue_free()
 
-func _on_timer_timeout():
+func _on_Timer_timeout():
 	queue_free()
