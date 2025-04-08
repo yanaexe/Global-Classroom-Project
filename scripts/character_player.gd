@@ -90,10 +90,22 @@ func take_damage(amount):
 func _on_invincibility_timeout():
 		can_take_damage = true
 		print("Player can now be damaged again.")
-	
+		
 func _on_body_entered(body):
-	if body.is_in_group("enemies"):
-		take_damage(1)
+	if body.is_in_group("enemies") and body.name == "enemy_slime":
+		print("Collided with slime — triggering minigame.")
+		body.set_physics_process(false)  # Freeze slime
+		set_physics_process(false)       # Freeze player
+		start_dodge_minigame()
+		
+func start_dodge_minigame():
+	var minigame = get_node("/root/stage1/DodgeMinigame")  # Adjust path if needed
+	if minigame:
+		minigame.visible = true
+		if minigame.has_method("start_minigame"):
+			minigame.start_minigame()
+	else:
+		print("⚠️ DodgeMinigame not found!")
 
 func die():
 	if last_direction == "right":

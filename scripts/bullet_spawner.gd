@@ -2,8 +2,8 @@ extends Node2D
 
 @export var bullet_scene: PackedScene = preload("res://scenes/dodge_bullet.tscn")
 @export var spawn_interval: float = 0.5  # Seconds between shots
+@onready var area := get_node("../Border/BattleArea")
 
-@onready var area := get_node("/root/DodgeMinigame/BattleBox/Border/BattleArea")
 
 var spawn_timer := 0.0
 

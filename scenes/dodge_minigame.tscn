@@ -22,9 +22,7 @@ animations = [{
 
 [node name="DodgeMinigame" type="Control"]
 layout_mode = 3
-anchor_right = 0.375
-anchor_bottom = 0.667
-offset_bottom = -0.0600128
+anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_upxc4")
@@ -50,6 +48,8 @@ offset_bottom = 38.0
 color = Color(0.0475577, 0.0475576, 0.0475576, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BattleBox/Border/BattleArea"]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleBox/Border/BattleArea/StaticBody2D"]
 polygon = PackedVector2Array(-2, -2, 38, -2, 38, 38, -2, 38, 0, 36, 36, 36, 36, 0, 0, 0, 0, 36, -2, 38)
@@ -57,6 +57,8 @@ polygon = PackedVector2Array(-2, -2, 38, -2, 38, 38, -2, 38, 0, 36, 36, 36, 36, 
 [node name="PlayerSoul" type="CharacterBody2D" parent="BattleBox/Border" groups=["player_soul"]]
 position = Vector2(20.6667, 22.6667)
 scale = Vector2(0.333333, 0.333333)
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_rsqg1")
 speed = 100.0
 

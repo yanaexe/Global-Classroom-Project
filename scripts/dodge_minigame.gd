@@ -1,8 +1,24 @@
 extends Control
 
-func _ready():
-	print("Dodge minigame started!")
+@onready var bullet_spawner = get_node("BattleBox/BulletSpawner")
+@onready var timer = $Timer
 
+func _ready():
+	visible = false  # hidden by default
+	timer.stop()
+	bullet_spawner.set_process(false)
+	print("Dodge minigame ready!")
+
+func start_minigame():
+	print("Minigame started!")
+	visible = true
+	
+	var screen_size = get_viewport_rect().size
+	position = screen_size / 2 - size / 2
+	print("Centered at:", position)
+	
+	timer.start()
+	bullet_spawner.set_process(true)
 func _on_Timer_timeout():
 	print("You survived!")
 	var bullet_spawner = get_node("BattleBox/BulletSpawner")
