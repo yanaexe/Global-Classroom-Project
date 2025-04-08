@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var player: CharacterBody2D
 
+
 func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
@@ -28,6 +29,5 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 
 	velocity.y += gravity * delta
-
 	move_and_slide()
-	$AnimatedSprite2D.flip_h = velocity.x < 0
+	$AnimatedSprite2D.flip_h = velocity.x > 0

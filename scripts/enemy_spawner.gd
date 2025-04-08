@@ -23,29 +23,26 @@ func _ready():
 		print("❌ Slime scene not assigned!")
 
 func spawn_slime():
-	print("💥 Inside spawn_slime()")
-
-	var slime = slime_scene.instantiate()
-	if slime == null:
-		print("❌ Instantiation failed!")
-		return
-		
-	print("✅ Slime instantiated")
 	
-		# 👇 Add this: create a visible green box to confirm the slime node is visible
+	var slime = slime_scene.instantiate()
+	print("👀 Slime children:", slime.get_children())
+	print("✅ Slime instantiated as:", slime.get_class())
+
+	# Add green debug sprite
 	var debug_sprite := Sprite2D.new()
 	var texture := Image.new()
 	texture.create(32, 32, false, Image.FORMAT_RGBA8)
 	texture.fill(Color.GREEN)
 	var img_tex := ImageTexture.create_from_image(texture)
 	debug_sprite.texture = img_tex
+	debug_sprite.position = Vector2.ZERO  # ensure it's centered
 	slime.add_child(debug_sprite)
-	
-	var rand_x = randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x)
-	var rand_y = randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
-	slime.global_position = Vector2(rand_x, rand_y)
 
-	print("📍 Slime position set to:", slime.global_position)
+	slime.global_position = Vector2(400, 300)  # hardcoded test pos
+	get_tree().current_scene.add_child(slime)
+
+	print("✅ Slime added to scene at 0,0")
+
 
 	get_tree().current_scene.add_child(slime)
 	print("✅ Slime added to scene")
