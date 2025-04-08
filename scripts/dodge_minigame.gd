@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	print("Dodge minigame started!")
 
-func _on_SurvivalTimer_timeout():
+func _on_Timer_timeout():
 	print("You survived!")
 	
 	# Stop spawning bullets (if you made a spawner node)
@@ -11,9 +11,5 @@ func _on_SurvivalTimer_timeout():
 		$BulletSpawner.queue_free()
 	
 	# Optional: freeze player, show message, etc.
-	get_node("PlayerSoul").set_physics_process(false)
-
-
-
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+	var player = get_tree().get_nodes_in_group("player_soul")[0]
+	player.set_physics_process(false)
