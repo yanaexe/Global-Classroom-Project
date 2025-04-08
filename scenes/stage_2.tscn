@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://boj7b7qijh5k1"]
+[gd_scene load_steps=9 format=3 uid="uid://3aqsllu0ayju"]
 
 [ext_resource type="Texture2D" uid="uid://cqry7pvfsjoq2" path="res://backgrounds/crystal_repeatableBG.png" id="1_frapx"]
 [ext_resource type="Texture2D" uid="uid://bd7rsfm576x1h" path="res://backgrounds/repeatable_wall_background.png" id="2_cg3n2"]

@@ -26,6 +26,7 @@ func spawn_bullet():
 	# Create the bullet
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = spawn_pos
+	bullet.battle_area = rect # Pass the battle area to the bullet
 	get_tree().get_root().add_child(bullet)
 
 	# Find the player

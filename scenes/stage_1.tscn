@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d33issu1eff0t" path="res://scenes/character_player.tscn" id="2_y0l7d"]
 [ext_resource type="Texture2D" uid="uid://dhl1ygbenk774" path="res://backgrounds/cave_platform.png" id="3_qbnk2"]
 [ext_resource type="Texture2D" uid="uid://bxhe71fk6gg8" path="res://backgrounds/platforms.png" id="4_e77qm"]
-[ext_resource type="PackedScene" uid="uid://bywgioc5hcf48" path="res://scenes/enemy_slime.tscn" id="5_kx1yv"]
-[ext_resource type="PackedScene" uid="uid://cprw7i1q1eyiy" path="res://scenes/dodge_minigame.tscn" id="6_e4xaw"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_slime.tscn" id="5_kx1yv"]
+[ext_resource type="PackedScene" uid="uid://qioiy1ybtfuy" path="res://scenes/dodge_minigame.tscn" id="6_e4xaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e77qm"]
 texture = ExtResource("3_qbnk2")
@@ -112,6 +112,4 @@ offset_left = -60.0
 offset_top = -60.0
 offset_right = -60.0
 offset_bottom = -60.0
-grow_horizontal = 1
-grow_vertical = 1
 pivot_offset = Vector2(60, 60)
