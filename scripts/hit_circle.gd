@@ -14,7 +14,9 @@ func _ready():
 func _process(delta):
 	var time_left = hit_time - Time.get_ticks_msec()
 	var scale_factor = clamp(float(time_left) / approach_duration, 0, 1)
-	$Sprite2D.scale = Vector2(1, 1) + Vector2(scale_factor, scale_factor)
+	var scale = lerp(2.0, 1.0, 1.0 - scale_factor)
+	$Sprite2D.scale = Vector2.ONE * scale
+
 
 	if time_left < -150 and not clicked:
 		emit_signal("note_missed")
