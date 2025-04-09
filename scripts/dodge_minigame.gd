@@ -1,5 +1,8 @@
 extends Control
 
+signal minigame_won
+signal minigame_lost
+
 @onready var bullet_spawner = get_node("BattleBox/BulletSpawner")
 @onready var timer = $Timer
 
@@ -8,7 +11,7 @@ func _ready():
 	timer.stop()
 	bullet_spawner.set_process(false)
 	print("Dodge minigame ready!")
-	
+
 func start_minigame():
 	print("Minigame started!")
 	visible = true
@@ -20,20 +23,23 @@ func start_minigame():
 		print("Centered at camera screen center:", position)
 	else:
 		print("⚠️ No camera found")
-		
+
 	timer.start()
 	bullet_spawner.set_process(true)
-	
+
 func _on_Timer_timeout():
 	print("You survived!")
-	var bullet_spawner = get_node("BattleBox/BulletSpawner")
-	# Stop spawning bullets (if you made a spawner node)
+
+	# Stop spawning bullets
 	if bullet_spawner:
-		print("I'n here!")
+		print("I'm here!")
 		bullet_spawner.set_process(false)
 		bullet_spawner.queue_free()
-	
-	print("I Didn't go through bullet spawner")
-	# Optional: freeze player, show message, etc.
-	var player = get_tree().get_nodes_in_group("player_soul")[0]
-	player.set_physics_process(false)
+
+	print("I didn't go through bullet spawner")
+
+	# Signal the player won
+	emit_signal("minigame_won")
+
+	# Hide the minigame UI
+	visible = false

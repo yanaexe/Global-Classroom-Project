@@ -3,11 +3,11 @@ extends CharacterBody2D
 signal damaged(amount)
 
 @export var speed = 300
-@export var gravity = 1500  # Adjust this to make the player get pulled to the ground faster
+@export var gravity = 1500
 @export var jump_strength = 400  
-@export var dash_speed = 600  # Speed boost during dash
-@export var dash_duration = 0.2  # Dash time in seconds
-@export var dash_cooldown = 1.0  # Cooldown before dashing again
+@export var dash_speed = 600
+@export var dash_duration = 0.2
+@export var dash_cooldown = 1.0
 
 @onready var animation = $AnimationPlayer
 var last_direction = "right"
@@ -24,16 +24,14 @@ func _ready():
 func get_input():
 	var input_direction = Input.get_axis("left", "right")
 
-	# Apply normal movement if not dashing
 	if not is_dashing:
 		velocity.x = input_direction * speed
 
 	if not is_on_floor():
-		velocity.y += gravity * get_process_delta_time()  # Apply gravity only when not on the floor
+		velocity.y += gravity * get_process_delta_time()
 	else:
-		velocity.y = 0  # Reset vertical velocity to 0 when on the ground
+		velocity.y = 0
 
-	# Animation handling
 	if input_direction > 0:
 		animation.play("walk_right")
 		last_direction = "right"
@@ -43,16 +41,13 @@ func get_input():
 	else:
 		animation.play("idle_" + last_direction)
 
-	# Jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -jump_strength  # Apply jump force
+		velocity.y = -jump_strength
 		animation.play("jump_" + last_direction)
-	
-	#Moving down
-	if is_on_floor()==false and Input.is_action_just_pressed("down"):
+
+	if is_on_floor() == false and Input.is_action_just_pressed("down"):
 		velocity.y = +jump_strength
-		 	
-	# Dash Mechanic
+
 	if Input.is_action_just_pressed("dash") and not is_dashing and dash_cooldown_timer <= 0:
 		is_dashing = true
 		dash_timer = dash_duration
@@ -61,55 +56,66 @@ func get_input():
 		animation.play("dash_" + last_direction)
 
 func _physics_process(delta):
-	# Handle dashing
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0:
-			is_dashing = false  # End dash
+			is_dashing = false
 
-	# Cooldown countdown
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 
 	get_input()
-	move_and_slide() 
-	
+	move_and_slide()
+
 func take_damage(amount):
 	if not can_take_damage:
 		return
-	
+
 	can_take_damage = false 
-	health = max(health - 1, 0)
+	health = max(health - amount, 0)
 	emit_signal("damaged", amount)
-	
+
 	if health == 0:
 		die()
-	
-	$InvincibilityTimer.start()  # 1 second of invincibility
-	
+
+	$InvincibilityTimer.start()
+
 func _on_invincibility_timeout():
-		can_take_damage = true
-		print("Player can now be damaged again.")
-		
+	can_take_damage = true
+	print("Player can now be damaged again.")
+
 func _on_body_entered(body):
 	if body.is_in_group("enemies") and body.name == "enemy_slime":
 		print("Collided with slime — triggering minigame.")
-		body.set_physics_process(false)  # Freeze slime
-		set_physics_process(false)       # Freeze player
+		body.set_physics_process(false)
+		set_physics_process(false)
 		start_dodge_minigame()
-		
+
 func start_dodge_minigame():
-	var minigame = get_node("/root/stage1/DodgeMinigame")  # Adjust path if needed
+	var minigame = get_node("/root/stage1/DodgeMinigame")
 	if minigame:
+		if not minigame.is_connected("minigame_won", Callable(self, "_on_minigame_won")):
+			minigame.connect("minigame_won", Callable(self, "_on_minigame_won"))
+		if not minigame.is_connected("minigame_lost", Callable(self, "_on_minigame_lost")):
+			minigame.connect("minigame_lost", Callable(self, "_on_minigame_lost"))
 		minigame.visible = true
 		if minigame.has_method("start_minigame"):
 			minigame.start_minigame()
 	else:
 		print("⚠️ DodgeMinigame not found!")
 
+func _on_minigame_won():
+	print("✅ Minigame WON – resuming player.")
+	set_physics_process(true)
+
+func _on_minigame_lost():
+	print("❌ Minigame LOST – taking damage and resuming.")
+	take_damage(1)
+	set_physics_process(true)
+
 func die():
 	if last_direction == "right":
 		animation.play("dead_right")
 	else:
 		animation.play("dead_left")
-	set_physics_process(false)  # Stop movement
+	set_physics_process(false)

@@ -13,7 +13,16 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("player_soul"):
-		print("Player hit!")
+		print("💥 Player hit by bullet!")
+
+		# Emit minigame_lost signal to DodgeMinigame
+		var minigame = get_tree().get_root().get_node("stage1/DodgeMinigame")
+		if minigame and minigame.has_signal("minigame_lost"):
+			minigame.visible = false
+			minigame.emit_signal("minigame_lost")
+		else:
+			print("⚠️ DodgeMinigame node not found or signal missing.")
+
 		queue_free()
 
 func _on_Timer_timeout():
