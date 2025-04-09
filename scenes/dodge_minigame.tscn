@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://qioiy1ybtfuy"]
 
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="1_bfiog"]
-[ext_resource type="Script" uid="uid://pu1o1c0i8sn4" path="res://scripts/player_soul.gd" id="1_rsqg1"]
-[ext_resource type="Script" uid="uid://c2rjv8c6sqceo" path="res://scripts/dodge_minigame.gd" id="1_upxc4"]
-[ext_resource type="Script" uid="uid://cfdre1gkqsltw" path="res://scripts/bullet_spawner.gd" id="4_tmvo2"]
+[ext_resource type="Script" path="res://scripts/player_soul.gd" id="1_rsqg1"]
+[ext_resource type="Script" path="res://scripts/dodge_minigame.gd" id="1_upxc4"]
+[ext_resource type="Script" path="res://scripts/bullet_spawner.gd" id="4_tmvo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsqg1"]
 atlas = ExtResource("1_bfiog")
