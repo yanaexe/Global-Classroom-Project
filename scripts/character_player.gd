@@ -113,6 +113,7 @@ func die():
 	velocity = Vector2.ZERO
 	set_process(false)
 	set_physics_process(false)
+	get_tree().change_scene_to_file("res://scenes/escape_menu.tscn")
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
