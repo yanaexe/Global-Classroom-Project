@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://djj0cjii8hxaa"]
 
 [ext_resource type="Texture2D" uid="uid://cd14kql1cb60f" path="res://backgrounds/repeatable_cave_bg.png" id="1_yyqkx"]
-[ext_resource type="Script" uid="uid://b4mjrf0ktuh81" path="res://scripts/death_fall.gd" id="2_pipme"]
+[ext_resource type="Script" path="res://scripts/death_fall.gd" id="2_pipme"]
 [ext_resource type="PackedScene" uid="uid://d33issu1eff0t" path="res://scenes/character_player.tscn" id="2_y0l7d"]
 [ext_resource type="Texture2D" uid="uid://dhl1ygbenk774" path="res://backgrounds/cave_platform.png" id="3_qbnk2"]
 [ext_resource type="Texture2D" uid="uid://bxhe71fk6gg8" path="res://backgrounds/platforms.png" id="4_e77qm"]
 [ext_resource type="PackedScene" uid="uid://3x1lg5ys08p5" path="res://scenes/enemy_slime.tscn" id="5_kx1yv"]
 [ext_resource type="PackedScene" uid="uid://qioiy1ybtfuy" path="res://scenes/dodge_minigame.tscn" id="6_e4xaw"]
-[ext_resource type="Script" uid="uid://fmbqq7bvn63w" path="res://scripts/door.gd" id="7_bnu0w"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="7_bnu0w"]
 [ext_resource type="Texture2D" uid="uid://bjowq8um2s641" path="res://sprites/door.png" id="8_pipme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqpy"]

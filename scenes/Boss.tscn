@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs7cwvcd5ujca"]
+[gd_scene load_steps=4 format=3 uid="uid://bnvt0aki7sdt7"]
 
-[ext_resource type="Script" uid="uid://dbqdl34j7ptun" path="res://scripts/boss.gd" id="1_6ig5k"]
-[ext_resource type="Texture2D" uid="uid://5d3vfcr7lc1g" path="res://sprites/Boss.png" id="2_gw42l"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_6ig5k"]
+[ext_resource type="Texture2D" uid="uid://cu17vu55hvpf3" path="res://sprites/boss_animation.png" id="2_wwab2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edv8j"]
 
@@ -9,7 +9,9 @@
 script = ExtResource("1_6ig5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gw42l")
+texture = ExtResource("2_wwab2")
+hframes = 4
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(17.0145, 14.0033)
