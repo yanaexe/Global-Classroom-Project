@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfamjw3vb7tro"]
+
+[ext_resource type="Script" uid="uid://bpd4vpn612ny" path="res://escape_menu.gd" id="1_07klu"]
+[ext_resource type="Texture2D" uid="uid://ddbrpdbhvnjtr" path="res://sprites/title_screenBG.png" id="2_5sluh"]
+[ext_resource type="Texture2D" uid="uid://cqccjfn5pueo2" path="res://sprites/title_bars.png" id="3_02fc4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq06h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4gqa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfxfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1cvgh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq7x5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icd5u"]
+
+[node name="escape_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07klu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5sluh")
+
+[node name="try_againBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 41.0
+offset_right = 244.0
+offset_bottom = 121.0
+scale = Vector2(0.56, 0.44)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mq06h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_f4gqa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_pfxfp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1cvgh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sq7x5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_icd5u")
+text = "Try Again"
+icon = ExtResource("3_02fc4")
+clip_text = true
+icon_alignment = 1
+
+[node name="home_Btn" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 103.0
+offset_right = 244.0
+offset_bottom = 183.0
+scale = Vector2(0.556542, 0.449097)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mq06h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_f4gqa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_pfxfp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1cvgh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sq7x5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_icd5u")
+text = "Home"
+icon = ExtResource("3_02fc4")
+clip_text = true
+icon_alignment = 1
+
+[connection signal="pressed" from="try_againBtn" to="." method="_on_try_again_btn_pressed"]
+[connection signal="pressed" from="home_Btn" to="." method="_on_home_btn_pressed"]
