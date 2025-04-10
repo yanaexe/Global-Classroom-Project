@@ -14,3 +14,5 @@ texture = ExtResource("2_hmcpe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hmcpe")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
