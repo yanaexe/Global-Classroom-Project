@@ -100,13 +100,13 @@ centered = false
 [node name="enemy_slime" parent="." instance=ExtResource("5_kx1yv")]
 position = Vector2(232, 122)
 
-[node name="EnemySpawner" type="Node2D" parent="."]
-script = ExtResource("3_yq7jk")
-slime_scene = ExtResource("5_kx1yv")
-
 [node name="character_player" parent="." instance=ExtResource("2_y0l7d")]
 position = Vector2(-956, 116)
 scale = Vector2(2.76, 2.3221)
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_yq7jk")
+slime_scene = ExtResource("5_kx1yv")
 
 [node name="stage_platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucbtq")
