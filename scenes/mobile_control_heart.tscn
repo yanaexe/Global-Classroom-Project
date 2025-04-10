@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c17q7esypwna0"]
+
+[ext_resource type="Texture2D" uid="uid://bnoiqfkp82w8e" path="res://backgrounds/arrows.png" id="1_bxels"]
+
+[node name="MobileControl" type="CanvasLayer"]
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2(24, 118)
+texture_normal = ExtResource("1_bxels")
+passby_press = true
+action = "dodgeMG_up"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2(56, 186)
+rotation = 3.14159
+texture_normal = ExtResource("1_bxels")
+passby_press = true
+action = "dodgeMG_down"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(6, 168)
+rotation = 4.71239
+texture_normal = ExtResource("1_bxels")
+passby_press = true
+action = "dodgeMG_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(74, 136)
+rotation = 1.5708
+texture_normal = ExtResource("1_bxels")
+passby_press = true
+action = "dodgeMG_right"
