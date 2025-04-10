@@ -34,7 +34,7 @@ func _on_Timer_timeout():
 	if bullet_spawner:
 		print("I'm here!")
 		bullet_spawner.set_process(false)
-		bullet_spawner.queue_free()
+		
 
 	print("I didn't go through bullet spawner")
 
