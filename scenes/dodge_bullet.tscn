@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqi1fnr6jqyvd"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_6hw4a"]
+[ext_resource type="Script" uid="uid://u741h25812hq" path="res://scripts/bullet.gd" id="1_6hw4a"]
 [ext_resource type="Texture2D" uid="uid://dvgwrh63bdywo" path="res://sprites/Mediavel.png" id="2_ketuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhl87"]
