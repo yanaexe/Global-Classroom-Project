@@ -212,7 +212,6 @@ scale = Vector2(1.1, 1.234)
 shape = SubResource("RectangleShape2D_qeqij")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="Graze_Area" type="Area2D" parent="."]

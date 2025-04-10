@@ -62,4 +62,23 @@ theme_override_colors/default_color = Color(0.0941241, 0.137642, 0.329754, 1)
 theme_override_fonts/normal_font = ExtResource("4_2imni")
 text = "Blue Jay"
 
+[node name="quitBtn" type="Button" parent="."]
+offset_left = 135.0
+offset_top = 118.0
+offset_right = 255.0
+offset_bottom = 201.0
+scale = Vector2(0.35911, 0.227881)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v7i3c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kn35v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w6am2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8b822")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7nejd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8q1dw")
+text = "Quit"
+icon = ExtResource("3_f4n0a")
+clip_text = true
+icon_alignment = 1
+
 [connection signal="pressed" from="startBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="quitBtn" to="." method="_on_quit_btn_pressed"]
