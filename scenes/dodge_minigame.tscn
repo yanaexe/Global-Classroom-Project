@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DodgeMinigame" type="Control"]
+[node name="DodgeMinigame" type="Control" groups=["active_bullets"]]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,7 +80,7 @@ sprite_frames = SubResource("SpriteFrames_ljo2j")
 position = Vector2(1, -7.00002)
 polygon = PackedVector2Array(2, -7.00001, 6.00001, -7.00001, 9.00001, -4, 9.00001, 0, 1, 8.00001, -1, 8.00001, -9.00001, 0, -9.00001, -4, -6.00001, -7.00001, -2, -7.00001, -1, -6.00001, 1, -6.00001)
 
-[node name="BulletSpawner" type="Node2D" parent="BattleBox"]
+[node name="BulletSpawner" type="Node2D" parent="BattleBox" groups=["active_bullets"]]
 script = ExtResource("4_tmvo2")
 
 [node name="Timer" type="Timer" parent="."]

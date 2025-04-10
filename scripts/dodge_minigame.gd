@@ -26,6 +26,19 @@ func start_minigame():
 
 	timer.start()
 	bullet_spawner.set_process(true)
+	
+func _clear_all_bullets():
+	for bullet in get_tree().get_nodes_in_group("active_bullets"):
+		if is_instance_valid(bullet):
+			bullet.queue_free()
+
+func stop_minigame():
+	if bullet_spawner and bullet_spawner.is_inside_tree():
+		bullet_spawner.set_process(false)
+
+	timer.stop()
+	_clear_all_bullets()
+	visible = false
 
 func _on_Timer_timeout():
 	print("You survived!")
@@ -39,6 +52,7 @@ func _on_Timer_timeout():
 	print("I didn't go through bullet spawner")
 
 	# Signal the player won
+	stop_minigame()
 	emit_signal("minigame_won")
 
 	# Hide the minigame UI

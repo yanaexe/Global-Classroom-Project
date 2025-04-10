@@ -1,8 +1,11 @@
 extends Area2D
 
-@export var speed: float = 50
+@export var speed: float = 25
 @export var direction: Vector2 = Vector2.LEFT
 var battle_area : Rect2
+
+func _ready():
+	add_to_group("active_bullets")
 
 func _process(delta):
 	position += direction.normalized() * speed * delta
@@ -18,8 +21,9 @@ func _on_body_entered(body: Node2D):
 		# Emit minigame_lost signal to DodgeMinigame
 		var minigame = get_tree().get_root().get_node("stage1/DodgeMinigame")
 		if minigame and minigame.has_signal("minigame_lost"):
-			minigame.visible = false
+			minigame.stop_minigame()
 			minigame.emit_signal("minigame_lost")
+			minigame.visible = false  # Hide the minigame UI
 		else:
 			print("⚠️ DodgeMinigame node not found or signal missing.")
 
