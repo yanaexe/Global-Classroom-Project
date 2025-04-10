@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djj0cjii8hxaa"]
+[gd_scene load_steps=17 format=3 uid="uid://djj0cjii8hxaa"]
 
 [ext_resource type="Texture2D" uid="uid://cd14kql1cb60f" path="res://backgrounds/repeatable_cave_bg.png" id="1_yyqkx"]
 [ext_resource type="Script" uid="uid://b4mjrf0ktuh81" path="res://scripts/death_fall.gd" id="2_pipme"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://qioiy1ybtfuy" path="res://scenes/dodge_minigame.tscn" id="6_e4xaw"]
 [ext_resource type="Script" uid="uid://fmbqq7bvn63w" path="res://scripts/door.gd" id="7_bnu0w"]
 [ext_resource type="Texture2D" uid="uid://bjowq8um2s641" path="res://sprites/door.png" id="8_pipme"]
+[ext_resource type="Texture2D" uid="uid://bl25kmwqgfdv7" path="res://sprites/q_btn.png" id="10_pu7io"]
+[ext_resource type="Texture2D" uid="uid://dffkenexa7u1" path="res://sprites/Screenshot 2025-04-11 045129.png" id="11_k3p0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqpy"]
 size = Vector2(254, 83)
@@ -86,6 +88,17 @@ texture = ExtResource("4_e77qm")
 physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_e77qm")
 sources/1 = SubResource("TileSetAtlasSource_kx1yv")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu7io"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_k3p0l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="stage1" type="Node2D"]
 
@@ -172,15 +185,24 @@ pivot_offset = Vector2(60, 60)
 [node name="RichTextLabel" type="RichTextLabel" parent="Help"]
 offset_left = -1010.0
 offset_top = 38.0
-offset_right = -864.0
+offset_right = -783.0
 offset_bottom = 65.0
-text = "Press Shift to Dash
+text = "Press Shift or         to Dash
 "
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Help"]
-offset_left = 1154.0
-offset_top = 22.0
-offset_right = 1300.0
-offset_bottom = 99.0
-text = "Press Q on the door to enter the next level"
+offset_left = 1153.0
+offset_top = 51.0
+offset_right = 1299.0
+offset_bottom = 128.0
+text = "Press Q or     on the door to enter the next level"
 fit_content = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Help/RichTextLabel2"]
+position = Vector2(90, 13)
+texture = ExtResource("10_pu7io")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Help"]
+position = Vector2(-889, 50)
+scale = Vector2(0.105634, 0.11215)
+sprite_frames = SubResource("SpriteFrames_pu7io")

@@ -50,6 +50,7 @@ clip_text = true
 icon_alignment = 1
 
 [node name="home_Btn" type="Button" parent="."]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 103.0
 offset_right = 244.0

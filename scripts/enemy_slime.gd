@@ -7,6 +7,7 @@ var player: CharacterBody2D
 
 
 func _ready():
+	set_meta("start_minigame", true)
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]

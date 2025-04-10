@@ -63,6 +63,7 @@ theme_override_fonts/normal_font = ExtResource("4_2imni")
 text = "Blue Jay"
 
 [node name="quitBtn" type="Button" parent="."]
+layout_mode = 0
 offset_left = 135.0
 offset_top = 118.0
 offset_right = 255.0

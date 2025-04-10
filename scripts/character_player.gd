@@ -116,12 +116,16 @@ func die():
 	get_tree().change_scene_to_file("res://scenes/escape_menu.tscn")
 
 func _on_body_entered(body):
-	if body.is_in_group("enemies"):
-		print("Collided with slime — triggering minigame.")
+	if body.has_meta("start_minigame") and body.get_meta("start_minigame"):
+		print("🎮 Collided with minigame enemy – starting minigame.")
 		frozen_enemy = body
 		body.set_physics_process(false)
 		set_physics_process(false)
 		start_dodge_minigame()
+	elif body.has_meta("boss_attack") and body.get_meta("boss_attack"):
+		print("🔥 Collided with boss")
+		take_damage(2)
+
 
 func start_dodge_minigame():
 	var minigame = get_node_or_null("/root/stage1/DodgeMinigame")
@@ -131,7 +135,7 @@ func start_dodge_minigame():
 		get_node("/root/stage1").add_child(minigame)
 
 	if not minigame.is_connected("minigame_won", Callable(self, "_on_minigame_won")):
-		minigame.connect("minigame_won", Callable(self, "_on_minigame_won"))
+		minigame.connect("minigtsame_won", Callable(self, "_on_minigame_won"))
 	if not minigame.is_connected("minigame_lost", Callable(self, "_on_minigame_lost")):
 		minigame.connect("minigame_lost", Callable(self, "_on_minigame_lost"))
 
